@@ -3,27 +3,59 @@
     flex-wrap: wrap;
     gap: 20px;
 }
+
 .col {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: none;
+    border-radius: 12px;
     padding: 15px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.col:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .image-over img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
+    transition: opacity 0.3s;
 }
+
+.image-over img:hover {
+    opacity: 0.9;
+}
+
 .card-details {
     text-align: center;
+    color: #343a40;
+    margin-top: 15px;
 }
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.card-category {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
 .primary-button {
-    margin: 5px;
-    padding: 10px 20px;
+    margin: 10px 0;
+    padding: 12px 30px;
     background-color: #007bff;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
+
 .primary-button:hover {
     background-color: #0056b3;
 }

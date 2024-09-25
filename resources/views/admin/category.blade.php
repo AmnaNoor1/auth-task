@@ -1,6 +1,6 @@
 @extends('admin.layouts.dashboard')
 
-@section('title', 'Home Page') <!-- Fills in the title section -->
+@section('title', 'Category') 
 
 @section('content')
 

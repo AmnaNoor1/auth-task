@@ -1,9 +1,13 @@
 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-        <a href="/admin/dashboard" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <span class="fs-5 d-none d-sm-inline">Menu</span>
         </a>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li>
+                <a href="{{route('admin.dashboard')}}" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span></a>
+            </li>
             <li>
                 <a href="{{route('admin.addcategory')}}" class="nav-link px-0 align-middle">
                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Categories</span></a>
@@ -12,17 +16,6 @@
                 <a href="{{route('admin.addcard')}}" class="nav-link px-0 align-middle">
                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Cards</span></a>
             </li>
-            <li>
-                {{-- <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> --}}
-                    {{-- <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Cards</span> </a> --}}
-                <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                    <li>
-                        <a href="{{route('admin.viewallcards')}}" class="nav-link px-0"> <span class="d-none d-sm-inline">View All</span> </a>
-                    </li>
-                    
-                </ul>
-            </li>
-           
         </ul>
         <hr>
         {{-- <div class="dropdown pb-4">

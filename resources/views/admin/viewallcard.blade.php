@@ -13,12 +13,12 @@
                             <img src="{{ asset('storage/' . $card->image) }}" alt="{{ $card->title }}" class="img-fluid" />
                         </div>
                         <div class="card-details">
-                            <div class="card-title">{{ $card->title }}</div>
+                            <div class="card-title btn btn-lg">{{ $card->title }}</div>
                             <div class="card-category">{{ $card->category }}</div>
-                            <div class="card-buttons">
+                            {{-- <div class="card-buttons">
                                 <a href="#" target="_blank" class="btn primary-button">Multi-Page</a>
                                 <a href="#" target="_blank" class="btn primary-button">One-Page</a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 @endforeach

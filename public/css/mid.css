@@ -1,0 +1,140 @@
+/* .mid .row {
+  margin: 10 20px !important;
+} */
+
+.mid {
+  background-color: #191919;
+  padding: 130px 0;
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+}
+.mid p {
+  color: #dd1e4b;
+  text-align: center;
+}
+
+.mid h2 {
+  color: white;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 600;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.btn-group {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: 92vw;
+}
+
+.btn-group-vertical > .btn,
+.btn-group > .btn {
+  flex: none;
+}
+
+.btn-group .btn {
+  margin: 0px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6f6f6f;
+  text-decoration: none;
+}
+
+.btn-group input[type="radio"] {
+  display: none;
+}
+
+.custom-radio-button {
+  position: relative;
+  display: block;
+  padding: 10px;
+  width: max-content;
+  cursor: pointer;
+}
+
+.btn-group input[type="radio"]:checked + .custom-radio-button {
+  color: white;
+}
+
+.btn-group input[type="radio"]:checked + .custom-radio-button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(45deg, #e0040b 15%, #dd1e4b 65%);
+  transition: width 0.1s ease 0s;
+}
+
+@media (max-width: 891px) {
+  .mid h2 {
+    font-size: 42px;
+  }
+
+  .btn-group .btn {
+    font-size: 1rem;
+  }
+}
+
+.main-section::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: -50px;
+  left: 50%;
+  left: calc(50% - 2.5px);
+  width: 5px;
+  height: 100px;
+  background-image: linear-gradient(45deg, #dd1e4b 15%, #e0040b 65%);
+}
+
+.mid::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -50px;
+  left: 50%;
+  left: calc(50% - 2.5px);
+  width: 5px;
+  height: 100px;
+  background-image: linear-gradient(45deg, #dd1e4b 15%, #e0040b 65%);
+}
+
+.mid::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: -50px;
+  left: 50%;
+  left: calc(50% - 2.5px);
+  width: 5px;
+  height: 100px;
+  background-image: linear-gradient(45deg, #dd1e4b 15%, #e0040b 65%);
+}
+
+.end::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: -50px;
+  left: 50%;
+  left: calc(50% - 2.5px);
+  width: 5px;
+  height: 100px;
+  background-image: linear-gradient(45deg, #dd1e4b 15%, #e0040b 65%);
+}

@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     </head>
     <body class="bg-light">
-        <section class=" p-3 p-md-4 p-xl-5">
+        <section class="p-3 p-md-4 p-xl-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
@@ -20,12 +20,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form action="{{ route('account.processRegister')}}" method="post">
+                                <form action="{{ route('account.processRegister')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row gy-3 overflow-hidden">
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="text"  value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter your name" >
+                                                <input type="text" value="{{old('name')}}" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter your name" >
                                                 <label for="name" class="form-label">Name</label>
                                                 @error('name')
                                                 <p class="invalid-feedback">{{$message}}</p>
@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="text"  value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" >
+                                                <input type="text" value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" >
                                                 <label for="email" class="form-label">Email</label>
                                                 @error('email')
                                                 <p class="invalid-feedback">{{$message}}</p>
@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="" placeholder="Password" >
+                                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password" >
                                                 <label for="password" class="form-label">Password</label>
                                                 @error('password')
                                                 <p class="invalid-feedback">{{$message}}</p>
@@ -52,9 +52,31 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" value="" placeholder="Confirm Password" >
+                                                <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" >
                                                 <label for="password_confirmation" class="form-label">Confirm Password</label>
                                                 @error('password_confirmation')
+                                                <p class="invalid-feedback">{{$message}}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture" id="profile_picture" >
+                                                <label for="profile_picture" class="form-label">Profile Picture</label>
+                                                @error('profile_picture')
+                                                <p class="invalid-feedback">{{$message}}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select @error('gender') is-invalid @enderror" name="gender" id="gender">
+                                                    <option value="">Select Gender</option>
+                                                    <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                                                    <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                                                </select>
+                                                <label for="gender" class="form-label">Gender</label>
+                                                @error('gender')
                                                 <p class="invalid-feedback">{{$message}}</p>
                                                 @enderror
                                             </div>

@@ -1,0 +1,36 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #191919;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+svg {
+  display: block;
+  margin: auto;
+  transform: rotate(180deg);
+}
+
+.circle {
+  fill: none;
+  stroke-width: 11;
+  stroke-linecap: square;
+}
+
+.loader-text {
+  color: #8e8e8e;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

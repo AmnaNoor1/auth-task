@@ -1,17 +1,16 @@
 <?php
 
+use App\Http\Controllers\admin\CardController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\admin\CategoryController;
+
+use App\Http\Controllers\user\LoginController;
+use App\Http\Controllers\user\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-//customer
+//user
 Route::group(['prefix'=>'account'],function(){
     Route::group(['middleware'=>'guest'],function(){
         Route::get('login',[LoginController::class, 'index'])->name('account.login');
@@ -38,6 +37,18 @@ Route::group(['prefix'=>'admin'],function(){
     Route::group(['middleware'=>'admin.auth'],function(){
         Route::get('dashboard',[AdminDashboardController::class, 'index'])->name('admin.dashboard'); 
         Route::get('logout',[AdminLoginController::class, 'logout'])->name('admin.logout');
+        Route::get('addcard',[CardController::class, 'addcard'])->name('admin.addcard');
+        Route::post('process-addcard',[CardController::class, 'store'])->name('admin.processAddcard');
+        Route::get('addcategory',[CategoryController::class, 'index'])->name('admin.addcategory');
+        Route::post('process-addcategory',[CategoryController::class, 'addcategory'])->name('admin.processAddcategory');
+        Route::put('updatecategory',[CategoryController::class, 'updatecategory'])->name('admin.updatecategory');
+        Route::delete('deletecategory/{id}',[CategoryController::class, 'deletecategory'])->name('admin.deletecategory');
+        Route::get('viewallcards',[CardController::class, 'viewallcards'])->name('admin.viewallcards');
+        // Route::get('editcard',[CardController::class, 'editcard'])->name('admin.editcard');
+        Route::put('updatecard', [CardController::class, 'updatecard'])->name('admin.updatecard');
+        Route::delete('deletecard/{id}', [CardController::class, 'deletecard'])->name('admin.deletecard');
     });
    
 });
+
+

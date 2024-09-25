@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
+use App\Http\Controllers\Controller;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class LoginController extends Controller
 {
     //show login page for general user 
     public function index(){
-        return view('login');
+        return view('user.login');
     }
 
     //authenticate
@@ -39,7 +40,7 @@ class LoginController extends Controller
 
     //register
     public function register(){
-       return view('register');
+       return view('user.register');
     }
 
     //
@@ -48,15 +49,21 @@ class LoginController extends Controller
             'email' => 'required | email | unique:users',
             'password' => 'required | confirmed | min:8',
             'password_confirmation' => 'required',
-            'name' => 'required'
+            'name' => 'required',
+            'gender' => 'required',
+            'profile_picture' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($validator->passes()) {
+            $profilePicturePath = $request->file('profile_picture')->store('profile_pictures', 'public');
+
             $user = new User();
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->role = 'customer';
+            $user->gender = $request->gender;
+            $user->profile_picture = $profilePicturePath;
             $user->save();
             return redirect()->route('account.login')->with('success','you have registred successfully');
 

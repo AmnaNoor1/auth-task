@@ -1,0 +1,13 @@
+.sidebar {
+    position: fixed; /* Fix the sidebar to the viewport */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full viewport height */
+    width: 250px; /* Set sidebar width */
+    overflow-y: auto; /* Add scroll if content exceeds height */
+    background-color: #6c757d; /* Sidebar background */
+    padding-top: 10px; /* Optional padding */
+}
+.content {
+    margin-left: 250px; /* Ensure content starts after the sidebar */
+}

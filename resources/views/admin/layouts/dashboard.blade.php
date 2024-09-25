@@ -5,9 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>@yield('title')</title>
       <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+       <link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
    </head>
    <body class="bg-light">
     @include('admin.partials.navbar')
+    
        <div class="container-fluid">
          <div class="row flex-nowrap">
             @include('admin.partials.sidebar')

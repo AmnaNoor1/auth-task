@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Card;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 class CardController extends Controller
@@ -19,8 +20,13 @@ class CardController extends Controller
 
     public function store(Request $request)
     {
+
+     
+         if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('cards', 'public');
+        }
         
-        $imagePath = $request->file('image')->store('cards', 'public');
+        // $imagePath = $request->file('image')->store('cards', 'public');
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'category' => 'required|string|max:255',
@@ -44,8 +50,11 @@ class CardController extends Controller
 
 
     public function viewallcards(){
-        $cards = Card::all(); 
-        return view('admin.viewallcard', compact('cards')); 
+        $allcards = Card::all(); 
+        $cardcount = Card::count();
+        $catcount=Category::count();
+        $usercount=User::count();
+        return view('admin.viewallcard', ['cards'=>$allcards,'cardCount'=>$cardcount,'catCount'=>$catcount,'userCount'=>$usercount]); 
     }
 
     // public function editcard(){

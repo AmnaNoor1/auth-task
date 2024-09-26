@@ -1,25 +1,28 @@
 .mid-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
 .col {
     border: none;
-    border-radius: 12px;
+    border-radius: 0px;
     padding: 15px;
     background-color: #f8f9fa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* .col:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-} */
+.col {
+    width: 23%;
+    margin: 8px 7px;
+    padding: 0 13px;
+    position: relative;
+}
 
 .image-over img {
     width: 100%;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 2px;
     transition: opacity 0.3s;
 }
 
